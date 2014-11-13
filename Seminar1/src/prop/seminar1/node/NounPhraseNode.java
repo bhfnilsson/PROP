@@ -16,6 +16,7 @@ public class NounPhraseNode implements INode{
 		determiner = tokenizer.current();
 		tokenizer.moveNext();
 		noun = tokenizer.current();
+		tokenizer.moveNext();
 		if(noun.value().equals("cats") || noun.value().equals("mice")) {
 			plural = true;
 		} 

@@ -16,6 +16,7 @@ public class SentenceNode implements INode{
 		nounPhrase = new NounPhraseNode(tokenizer);
 		verbPhrase = new VerbPhraseNode(tokenizer, nounPhrase.isPlural());
 		endOfSentence = tokenizer.current();
+		tokenizer.moveNext();
 	}
 	
 	@Override

@@ -12,14 +12,13 @@ public class VerbPhraseNode implements INode{
 	private NounPhraseNode nounPhrase;
 	
 	public VerbPhraseNode(Tokenizer tokenizer, boolean plural) throws IOException, TokenizerException {
-		tokenizer.moveNext();
 		verb = tokenizer.current();
+		tokenizer.moveNext();
 		if(((verb.value().equals("scares") || verb.value().equals("hates")) && plural) ||
 			(verb.value().equals("scare") || verb.value().equals("hate")) && !plural) {
 			throw new IllegalArgumentException("Verb and noun needs to be of same number category");
 		}
 		
-		tokenizer.moveNext();
 		nounPhrase = new NounPhraseNode(tokenizer);
 	}
 	

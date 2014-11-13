@@ -22,8 +22,7 @@ public class Tokenizer implements ITokenizer{
 		if(scanner.current() == '.') {
 			build.append(scanner.current());
 			String word = build.toString();
-			moveNext();
-			moveNext();
+			scanner.moveNext();
 			return new Lexeme(word, Token.EOS);
 		}
 		
@@ -55,8 +54,10 @@ public class Tokenizer implements ITokenizer{
 	 * Moves current to the next token in the stream.
 	 */
 	public void moveNext() throws IOException, TokenizerException {
-		scanner.moveNext();
 		
+		if(scanner.current() != '.') {
+			scanner.moveNext();
+		}
 	}
 
 	/**
