@@ -1,0 +1,25 @@
+PARSE TREE:
+TEXT
+	SENTENCE
+		NOUN PHRASE
+			DETERMINER a
+			NOUN mouse
+		VERB PHRASE
+			VERB hates
+			NOUN PHRASE
+				DETERMINER a
+				NOUN mouse
+		END OF SENTENCE
+			EOS .
+	TEXT
+		SENTENCE
+			NOUN PHRASE
+				DETERMINER the
+				NOUN mouse
+			VERB PHRASE
+				VERB scares
+				NOUN PHRASE
+					DETERMINER a
+					NOUN mouse
+			END OF SENTENCE
+				EOS .
