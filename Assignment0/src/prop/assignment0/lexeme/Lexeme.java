@@ -1,4 +1,6 @@
-package prop.assignment0;
+package prop.assignment0.lexeme;
+
+import prop.assignment0.token.Token;
 
 public class Lexeme {
 	private Object value;
