@@ -52,4 +52,30 @@ public class SentenceNode implements INode{
 		
 	}
 
+	@Override
+	public void translate(StringBuilder builder, int tabs) {
+		for(int i = 0; i < tabs ; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append("SENTENCE\n");
+		
+		tabs++;
+		nounPhrase.translate(builder, tabs);
+		verbPhrase.translate(builder, tabs);
+		
+		for(int i = 0; i < tabs ; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append("END OF SENTENCE\n");
+		
+		tabs++;
+		for(int i = 0; i < tabs ; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append(endOfSentence + "\n");
+	}
+
 }

@@ -2,24 +2,22 @@ PARSE TREE:
 TEXT
 	SENTENCE
 		NOUN PHRASE
-			DETERMINER the
-			NOUN mice
+			DETERMINER en
+			NOUN mus
 		VERB PHRASE
-			VERB hate
+			VERB hatar
 			NOUN PHRASE
-				DETERMINER the
-				NOUN cat
+				NOUNPHRASE katterna
 		END OF SENTENCE
 			EOS .
 	TEXT
 		SENTENCE
 			NOUN PHRASE
-				DETERMINER a
-				NOUN cat
+				NOUNPHRASE katterna
 			VERB PHRASE
-				VERB scares
+				VERB skrämmer
 				NOUN PHRASE
-					DETERMINER a
-					NOUN mouse
+					DETERMINER en
+					NOUN mus
 			END OF SENTENCE
 				EOS .

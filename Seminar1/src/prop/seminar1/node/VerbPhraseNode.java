@@ -3,6 +3,7 @@ package prop.seminar1.node;
 import java.io.IOException;
 
 import prop.seminar1.lexeme.Lexeme;
+import prop.seminar1.token.Token;
 import prop.seminar1.token.Tokenizer;
 import prop.seminar1.token.TokenizerException;
 
@@ -43,6 +44,30 @@ public class VerbPhraseNode implements INode{
 		
 		builder.append(verb + "\n");
 		nounPhrase.buildString(builder, ++tabs);
+	}
+
+	@Override
+	public void translate(StringBuilder builder, int tabs) {
+		
+		if(verb.value().equals("hate") || verb.value().equals("hates")) {
+			verb = new Lexeme("hatar", Token.VERB);
+		} else if(verb.value().equals("scare") || verb.value().equals("scares")) {
+			verb = new Lexeme("skrämmer", Token.VERB);
+		}
+		
+		for(int i = 0; i < tabs ; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append("VERB PHRASE\n");
+
+		for(int i = 0; i < tabs + 1 ; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append(verb + "\n");
+		nounPhrase.translate(builder, ++tabs);
+		
 	}
 
 }

@@ -38,4 +38,18 @@ public class TextNode implements INode{
 			text.buildString(builder, tabs);
 		}
 	}
+
+	@Override
+	public void translate(StringBuilder builder, int tabs) {
+		for(int i = 0; i < tabs ; i++) {
+			builder.append("\t");
+		}
+		builder.append("TEXT\n");
+		++tabs;
+		sentence.translate(builder, tabs);
+		
+		if(text != null) {
+			text.translate(builder, tabs);
+		}
+	}
 }
