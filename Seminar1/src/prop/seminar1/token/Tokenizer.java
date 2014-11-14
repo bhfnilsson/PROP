@@ -29,7 +29,7 @@ public class Tokenizer implements ITokenizer{
 			return new Lexeme(word, Token.EOS);
 		}
 		
-		while(scanner.current() != ' ' && scanner.current() != Scanner.EOF && scanner.current() != '.') {
+		while(scanner.current() != ' ' && scanner.current() != '.') {
 			build.append(scanner.current());
 			moveNext();
 		}
