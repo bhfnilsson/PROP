@@ -15,7 +15,7 @@ public class Tokenizer implements ITokenizer{
 		scanner.open(fileName);
 	}
 	
-	public char showCurrent() {
+	public char currentChar() {
 		return scanner.current();
 	}
 	

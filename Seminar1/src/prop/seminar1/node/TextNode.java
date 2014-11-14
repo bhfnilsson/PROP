@@ -14,7 +14,7 @@ public class TextNode implements INode{
 	public TextNode(Tokenizer tokenizer) throws IOException, TokenizerException {
 		sentence = new SentenceNode(tokenizer);
 		
-		if(tokenizer.showCurrent() != Scanner.EOF) {
+		if(tokenizer.currentChar() != Scanner.EOF) {
 			text = new TextNode(tokenizer);
 		}
 	}
