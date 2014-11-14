@@ -1,9 +1,8 @@
-package prop.seminar1;
+package prop.seminar1.token;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import prop.seminar1.node.TextNode;
+import prop.seminar1.lexeme.Lexeme;
 
 public interface ITokenizer {
 	/**

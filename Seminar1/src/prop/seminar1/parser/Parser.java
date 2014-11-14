@@ -1,9 +1,11 @@
-package prop.seminar1;
+package prop.seminar1.parser;
 
 import java.io.IOException;
 
 import prop.seminar1.node.INode;
 import prop.seminar1.node.TextNode;
+import prop.seminar1.token.Tokenizer;
+import prop.seminar1.token.TokenizerException;
 
 public class Parser implements IParser{
 

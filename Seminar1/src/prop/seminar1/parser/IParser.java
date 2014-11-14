@@ -1,9 +1,9 @@
-package prop.seminar1;
+package prop.seminar1.parser;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import prop.seminar1.node.INode;
+import prop.seminar1.token.TokenizerException;
 
 public interface IParser {
 	/**

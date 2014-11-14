@@ -1,6 +1,8 @@
-package prop.seminar1;
+package prop.seminar1.token;
 
 public class TokenizerException extends Exception {
+	private static final long serialVersionUID = 1L;
+
 	public TokenizerException(String message) {
 		super(message);
 	}

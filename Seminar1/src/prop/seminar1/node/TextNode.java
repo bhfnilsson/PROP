@@ -2,9 +2,9 @@ package prop.seminar1.node;
 
 import java.io.IOException;
 
-import prop.seminar1.Scanner;
-import prop.seminar1.Tokenizer;
-import prop.seminar1.TokenizerException;
+import prop.seminar1.scanner.Scanner;
+import prop.seminar1.token.Tokenizer;
+import prop.seminar1.token.TokenizerException;
 
 public class TextNode implements INode{
 

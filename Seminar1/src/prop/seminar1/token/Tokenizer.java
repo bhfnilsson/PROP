@@ -1,6 +1,9 @@
-package prop.seminar1;
+package prop.seminar1.token;
 
 import java.io.IOException;
+
+import prop.seminar1.lexeme.Lexeme;
+import prop.seminar1.scanner.Scanner;
 
 public class Tokenizer implements ITokenizer{
 	private Scanner scanner = new Scanner();

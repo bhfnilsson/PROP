@@ -1,4 +1,6 @@
-package prop.seminar1;
+package prop.seminar1.lexeme;
+
+import prop.seminar1.token.Token;
 
 public class Lexeme {
 	private Object value;

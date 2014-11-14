@@ -1,4 +1,4 @@
-package prop.seminar1;
+package prop.seminar1.scanner;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

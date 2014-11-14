@@ -4,6 +4,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 
 import prop.seminar1.node.INode;
+import prop.seminar1.parser.IParser;
+import prop.seminar1.parser.Parser;
 
 public class Program {
 	public static void main(String[] args) {
