@@ -39,7 +39,7 @@ public class NounPhraseNode implements INode{
 			builder.append("\t");
 		}
 		
-		builder.append("NOUN PHRASE\r\n");
+		builder.append("NOUN PHRASE\n");
 		
 		tabs++;
 		
@@ -47,13 +47,13 @@ public class NounPhraseNode implements INode{
 			builder.append("\t");
 		}
 		
-		builder.append(determiner + "\r\n");
+		builder.append(determiner + "\n");
 		
 		for(int i = 0; i < tabs; i++) {
 			builder.append("\t");
 		}
 		
-		builder.append(noun + "\r\n");
+		builder.append(noun + "\n");
 	}
 
 }

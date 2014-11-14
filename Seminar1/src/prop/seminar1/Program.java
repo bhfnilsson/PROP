@@ -9,8 +9,8 @@ import prop.seminar1.parser.Parser;
 
 public class Program {
 	public static void main(String[] args) {
-		String inputFileName = "C:\\Users\\Filip\\Development\\PROP\\Seminar1\\input.txt";
-		String outputFileName = "C:\\Users\\Filip\\Development\\PROP\\Seminar1\\output.txt";
+		String inputFileName = "input.txt";
+		String outputFileName = "output.txt";
 		IParser parser = null;
 		INode root = null; // Root of the parse tree.
 		StringBuilder builder = null;

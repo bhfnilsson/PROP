@@ -30,7 +30,7 @@ public class TextNode implements INode{
 		for(int i = 0; i < tabs ; i++) {
 			builder.append("\t");
 		}
-		builder.append("TEXT\r\n");
+		builder.append("TEXT\n");
 		++tabs;
 		sentence.buildString(builder, tabs);
 		

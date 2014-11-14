@@ -31,7 +31,7 @@ public class SentenceNode implements INode{
 			builder.append("\t");
 		}
 		
-		builder.append("SENTENCE\r\n");
+		builder.append("SENTENCE\n");
 		
 		tabs++;
 		nounPhrase.buildString(builder, tabs);
@@ -41,14 +41,14 @@ public class SentenceNode implements INode{
 			builder.append("\t");
 		}
 		
-		builder.append("END OF SENTENCE\r\n");
+		builder.append("END OF SENTENCE\n");
 		
 		tabs++;
 		for(int i = 0; i < tabs ; i++) {
 			builder.append("\t");
 		}
 		
-		builder.append(endOfSentence + "\r\n");
+		builder.append(endOfSentence + "\n");
 		
 	}
 

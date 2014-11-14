@@ -35,13 +35,13 @@ public class VerbPhraseNode implements INode{
 			builder.append("\t");
 		}
 		
-		builder.append("VERB PHRASE\r\n");
+		builder.append("VERB PHRASE\n");
 
 		for(int i = 0; i < tabs + 1 ; i++) {
 			builder.append("\t");
 		}
 		
-		builder.append(verb + "\r\n");
+		builder.append(verb + "\n");
 		nounPhrase.buildString(builder, ++tabs);
 	}
 
