@@ -19,6 +19,9 @@ public class NounPhraseNode implements INode{
 		tokenizer.moveNext();
 		if(noun.value().equals("cats") || noun.value().equals("mice")) {
 			plural = true;
+			if(!determiner.value().equals("the")) {
+				throw new IllegalArgumentException("Verb and noun needs to be of same number category");
+			}
 		} 
 	}
 	
