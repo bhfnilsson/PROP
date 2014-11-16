@@ -32,3 +32,4 @@ AssignmentNode
 	SEMICOLON ;
 
 EVALUATION:
+a = 2

@@ -29,8 +29,7 @@ public class AssignNode implements INode{
 	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return "" + id.value() + " " + assignOperator.value() + " " + expression.evaluate(null) + "\n";
 	}
 
 	@Override

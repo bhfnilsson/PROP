@@ -29,8 +29,11 @@ public class FactorNode implements INode{
 	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		if(value == null) {
+			return expression.evaluate(null);
+		} else {
+			return Integer.parseInt("" + (char)value.value());
+		}
 	}
 
 	@Override
