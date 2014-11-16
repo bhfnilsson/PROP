@@ -24,6 +24,8 @@ public class Tokenizer implements ITokenizer{
 		symbols.put('*', Token.MULT_OP);
 		symbols.put('(', Token.LEFT_PAREN);
 		symbols.put(')', Token.RIGHT_PAREN);
+		symbols.put('=', Token.ASSIGN_OP);
+		symbols.put(';', Token.SEMICOLON);
 	}
 	
 	@Override
@@ -36,7 +38,6 @@ public class Tokenizer implements ITokenizer{
 	public Lexeme current() throws IOException, TokenizerException {
 		
 		char current = scanner.current();
-
 		if(current == Scanner.EOF) {
 			return new Lexeme(current, Token.EOF);
 		}

@@ -33,8 +33,25 @@ public class TermNode implements INode{
 
 	@Override
 	public void buildString(StringBuilder builder, int tabs) {
-		// TODO Auto-generated method stub
 		
+		for (int i = 0; i < tabs; i++) {
+			builder.append("\t");
+		}
+		
+		builder.append("TermNode\n");
+		
+		tabs++;
+		
+		factor.buildString(builder, tabs);
+		
+		if(operator != null) {
+			for (int i = 0; i < tabs; i++) {
+				builder.append("\t");
+			}
+			
+			builder.append(operator + "\n");
+			term.buildString(builder, tabs);
+		}
 	}
 
 }

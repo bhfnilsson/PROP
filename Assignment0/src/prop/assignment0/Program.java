@@ -29,7 +29,7 @@ public class Program {
 				root = parser.parse();
 				builder = new StringBuilder();
 				builder.append("PARSE TREE:\n");
-//				root.buildString(builder, 0);
+				root.buildString(builder, 0);
 				builder.append("\nEVALUATION:\n");
 //				builder.append(root.evaluate(null));
 				
