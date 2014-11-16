@@ -3,6 +3,7 @@ package prop.assignment0.node;
 import java.io.IOException;
 
 import prop.assignment0.lexeme.Lexeme;
+import prop.assignment0.token.Token;
 import prop.assignment0.token.Tokenizer;
 import prop.assignment0.token.TokenizerException;
 
@@ -13,12 +14,13 @@ public class FactorNode implements INode{
 	
 	public FactorNode(Tokenizer tokenizer) throws IOException, TokenizerException {
 		Lexeme lexeme = tokenizer.current();
-		
-		if(lexeme.value() != "(") {
+		tokenizer.moveNext();
+
+		if(!lexeme.token().equals(Token.LEFT_PAREN)) {
 			value = lexeme;
-			tokenizer.moveNext();
 		} else {
 			expression = new ExpressionNode(tokenizer);
+			tokenizer.moveNext();
 		}
 	}
 	

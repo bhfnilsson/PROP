@@ -3,6 +3,7 @@ package prop.assignment0.node;
 import java.io.IOException;
 
 import prop.assignment0.lexeme.Lexeme;
+import prop.assignment0.token.Token;
 import prop.assignment0.token.Tokenizer;
 import prop.assignment0.token.TokenizerException;
 
@@ -16,9 +17,8 @@ public class TermNode implements INode{
 
 		factor = new FactorNode(tokenizer);
 		Lexeme lexeme = tokenizer.current();
-		
-		if(lexeme.value().equals("*") || lexeme.value().equals(("/"))) {
-			
+
+		if(lexeme.token().equals(Token.MULT_OP) || lexeme.token().equals(Token.DIV_OP)) {
 			operator = lexeme;
 			tokenizer.moveNext();
 			term = new TermNode(tokenizer);
