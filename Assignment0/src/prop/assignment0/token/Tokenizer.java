@@ -26,6 +26,10 @@ public class Tokenizer implements ITokenizer{
 		symbols.put(')', Token.RIGHT_PAREN);
 		symbols.put('=', Token.ASSIGN_OP);
 		symbols.put(';', Token.SEMICOLON);
+		symbols.put('{', Token.LEFT_CURLY);
+		symbols.put('}', Token.RIGHT_CURLY);
+//		symbols.put('\r', Token.SEMICOLON);
+//		symbols.put('\n', Token.SEMICOLON);
 	}
 	
 	@Override
@@ -48,19 +52,50 @@ public class Tokenizer implements ITokenizer{
 			}
 		}
 		
+		for (int i = 0; i < numbers.length; i++) {
+			if(current == numbers[i]) {
+				return new Lexeme(current, Token.INT_LIT);
+			}
+		}
+		
+//		builder = new StringBuilder();
+//		
+//		if(buildCharacterSet(builder, current, numbers)) {
+//			scanner.moveNext();
+//			while(buildCharacterSet(builder, scanner.current(), numbers)){
+//				scanner.moveNext();
+//			}
+//			return new Lexeme(Double.parseDouble(builder.toString()), Token.INT_LIT);
+//		}
+		
+//		StringBuilder builder = new StringBuilder();
+//		
+//		if(buildCharacterSet(builder, current, letters)) {
+//			scanner.moveNext();
+//			while(buildCharacterSet(builder, scanner.current(), letters)){
+//				scanner.moveNext();
+//			}
+//			return new Lexeme(builder.toString(), Token.IDENT);
+//		}
+		
 		for(Map.Entry<Character, Token> symbol : symbols.entrySet()) {
 			if(current == symbol.getKey()) {
 				return new Lexeme(symbol.getKey(), symbol.getValue());
 			}
 		}
 		
-		for (int i = 0; i < numbers.length; i++) {
-			if(current == numbers[i]) {
-
-				return new Lexeme(current, Token.INT_LIT);
+		return null;
+	}
+	
+	private boolean buildCharacterSet(StringBuilder builder, char current, char[] list) throws IOException {
+		
+		for (int i = 0; i < list.length; i++) {
+			if(current == list[i]) {
+				builder.append(current);
+				return true;
 			}
 		}
-		return null;
+		return false;
 	}
 
 	@Override
@@ -68,9 +103,9 @@ public class Tokenizer implements ITokenizer{
 
 		do {
 			scanner.moveNext();
-		} while(current() == null && scanner.current() != Scanner.EOF);
+		} while(scanner.current() == ' ' || scanner.current() == '\r' || scanner.current() == '\n');
 	}
-
+	
 	@Override
 	public void close() throws IOException {
 		scanner.close();

@@ -17,7 +17,6 @@ public class TermNode implements INode{
 
 		factor = new FactorNode(tokenizer);
 		Lexeme lexeme = tokenizer.current();
-
 		if(lexeme.token().equals(Token.MULT_OP) || lexeme.token().equals(Token.DIV_OP)) {
 			operator = lexeme;
 			tokenizer.moveNext();
@@ -29,14 +28,14 @@ public class TermNode implements INode{
 	public Object evaluate(Object[] args) throws Exception {
 		if(operator != null) {
 			if(operator.token().equals(Token.MULT_OP)) {
-				return (int)factor.evaluate(null) * (int)term.evaluate(null);
+				return (double)factor.evaluate(null) * (double)term.evaluate(null);
 			} else if(operator.token().equals(Token.DIV_OP)) {
-				return (int)factor.evaluate(null) / (int)term.evaluate(null);
+				return (double)factor.evaluate(null) / (double)term.evaluate(null);
 			} else {
 				return null;
 			}
 		} else {
-			return (int) factor.evaluate(null);
+			return (double) factor.evaluate(null);
 		}
 	}
 

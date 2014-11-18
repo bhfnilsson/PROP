@@ -30,9 +30,9 @@ public class ExpressionNode implements INode{
 	public Object evaluate(Object[] args) throws Exception {
 		if(expression != null) {
 			if(operator.token().equals(Token.ADD_OP)) {
-				return (int)term.evaluate(null) + (int)expression.evaluate(null);
+				return (double)term.evaluate(null) + (double)expression.evaluate(null);
 			} else if(operator.token().equals(Token.SUB_OP)) {
-				return (int)term.evaluate(null) - (int)expression.evaluate(null);
+				return (double)term.evaluate(null) - (double)expression.evaluate(null);
 			} else {
 				return null;
 			}

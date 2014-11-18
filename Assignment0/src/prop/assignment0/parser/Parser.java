@@ -3,6 +3,7 @@ package prop.assignment0.parser;
 import java.io.IOException;
 
 import prop.assignment0.node.AssignNode;
+import prop.assignment0.node.BlockNode;
 import prop.assignment0.node.INode;
 import prop.assignment0.token.Tokenizer;
 import prop.assignment0.token.TokenizerException;
@@ -22,7 +23,7 @@ public class Parser implements IParser{
 			ParserException {
 		
 		tokenizer.moveNext();
-		return new AssignNode(tokenizer);
+		return new BlockNode(tokenizer);
 	}
 
 	@Override

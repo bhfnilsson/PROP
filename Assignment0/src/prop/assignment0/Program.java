@@ -9,7 +9,7 @@ import prop.assignment0.parser.Parser;
 
 public class Program {
 	public static void main(String[] args) {
-		String inputFileName = "program1.txt";
+		String inputFileName = "program2.txt";
 		String outputFileName = "output.txt";
 		IParser parser = null;
 		INode root = null; // Root of the parse tree.

@@ -27,6 +27,10 @@ public class AssignNode implements INode{
 		tokenizer.moveNext();
 	}
 	
+	public Lexeme getId() {
+		return id;
+	}
+	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
 		return "" + id.value() + " " + assignOperator.value() + " " + expression.evaluate(null) + "\n";
@@ -34,6 +38,11 @@ public class AssignNode implements INode{
 
 	@Override
 	public void buildString(StringBuilder builder, int tabs) {
+		
+		for (int i = 0; i < tabs; i++) {
+			builder.append("\t");
+		}
+		
 		builder.append("AssignmentNode\n");
 		
 		tabs++;

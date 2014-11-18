@@ -79,6 +79,7 @@ LEFT_CURLY {
 								FactorNode
 									IDENT a
 					SEMICOLON ;
+				StatementsNode
 RIGHT_CURLY }
 
 EVALUATION:
