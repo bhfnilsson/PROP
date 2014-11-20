@@ -1,10 +1,7 @@
 package prop.assignment0.node;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import prop.assignment0.token.Token;
 import prop.assignment0.token.Tokenizer;
 import prop.assignment0.token.TokenizerException;
 
@@ -15,7 +12,7 @@ public class StatementsNode implements INode{
 	
 	public StatementsNode(Tokenizer tokenizer) throws IOException, TokenizerException {
 		
-		if(!tokenizer.current().token().equals(Token.RIGHT_CURLY)) {
+		if(tokenizer.peek() != '}') {
 			assign = new AssignNode(tokenizer);
 			statements = new StatementsNode(tokenizer);
 		}
@@ -23,7 +20,22 @@ public class StatementsNode implements INode{
 	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-		return null;
+		
+		if(assign != null) {
+
+			Object[] temp = new Object[args.length + 1];
+
+			int i;
+			for (i = 0; i < args.length; i++) {
+				temp[i] = args[i];
+			}
+
+			temp[i] = assign;
+
+			return "" + assign.evaluate(temp) + statements.evaluate(temp);
+		}
+		
+		return "";
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package prop.assignment0.node;
 
 import java.io.IOException;
-import prop.assignment0.node.*;
 
 import prop.assignment0.lexeme.Lexeme;
 import prop.assignment0.token.Token;
@@ -30,20 +29,20 @@ public class FactorNode implements INode{
 	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-//		if(value == null) {
-//			return expression.evaluate(null);
-//		} else {
-//			if(value.token().equals(Token.INT_LIT) {
-//				return Double.parseDouble("" + value.value());
-//			} else {
-//				for (int i = 0; i < args.length; i++) {
-//					if(value.token().equals((AssignNode)args[i].getValue())) {
-//						
-//					}
-//				}
-//			}
-//		}
-		return null;
+		if(value == null) {
+			return expression.evaluate(null);
+		} else {
+			if(value.token().equals(Token.INT_LIT)) {
+				return Double.parseDouble("" + value.value());
+			} else {
+				for (int i = 0; i < args.length; i++) {
+					if(value.value().equals(((AssignNode)args[i]).getId().value())) {
+						return ((AssignNode)args[i]).getValue();
+					}
+				}
+			}
+		}
+		return 0.0;
 	}
 
 	@Override
@@ -81,7 +80,6 @@ public class FactorNode implements INode{
 			
 				builder.append("" + value.token() + " " + Double.parseDouble("" + value.value()) + "\n");
 			} else {
-				
 				builder.append(value + "\n");
 			}
 		}

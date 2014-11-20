@@ -1,6 +1,5 @@
 package prop.assignment0.token;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import prop.assignment0.lexeme.Lexeme;

@@ -2,7 +2,6 @@ package prop.assignment0.parser;
 
 import java.io.IOException;
 
-import prop.assignment0.node.AssignNode;
 import prop.assignment0.node.BlockNode;
 import prop.assignment0.node.INode;
 import prop.assignment0.token.Tokenizer;
@@ -22,6 +21,7 @@ public class Parser implements IParser{
 	public INode parse() throws IOException, TokenizerException,
 			ParserException {
 		
+		tokenizer.moveNext();
 		tokenizer.moveNext();
 		return new BlockNode(tokenizer);
 	}

@@ -11,6 +11,7 @@ public class BlockNode implements INode{
 	private Lexeme leftCurly;
 	private Lexeme rightCurly;
 	private StatementsNode statements;
+	private Object[] assignNodes = new Object[]{};
 	
 	public BlockNode(Tokenizer tokenizer) throws IOException, TokenizerException {
 		leftCurly = tokenizer.current();
@@ -18,12 +19,11 @@ public class BlockNode implements INode{
 		statements = new StatementsNode(tokenizer);
 		
 		rightCurly = tokenizer.current();
-		tokenizer.moveNext();
 	}
 	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-		return null;
+		return statements.evaluate(assignNodes);
 	}
 
 	@Override

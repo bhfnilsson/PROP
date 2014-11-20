@@ -1,6 +1,7 @@
 package prop.assignment0.node;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import prop.assignment0.lexeme.Lexeme;
 import prop.assignment0.token.Tokenizer;
@@ -9,6 +10,7 @@ import prop.assignment0.token.TokenizerException;
 public class AssignNode implements INode{
 
 	private Lexeme id;
+	private double value;
 	private Lexeme assignOperator;
 	private ExpressionNode expression;
 	private Lexeme semicolon;
@@ -31,9 +33,18 @@ public class AssignNode implements INode{
 		return id;
 	}
 	
+	public double getValue() {
+		return value;
+	}
+	
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
-		return "" + id.value() + " " + assignOperator.value() + " " + expression.evaluate(null) + "\n";
+		value = (double) expression.evaluate(args);
+
+		BigDecimal doubleValue = new BigDecimal(value);  
+	    doubleValue = doubleValue.setScale(2, BigDecimal.ROUND_HALF_UP);
+		
+		return "" + id.value() + " " + assignOperator.value() + " " + doubleValue.doubleValue() + "\n";
 	}
 
 	@Override

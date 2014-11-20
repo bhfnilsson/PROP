@@ -12,7 +12,7 @@ public class TermNode implements INode{
 	private FactorNode factor;
 	private Lexeme operator;
 	private TermNode term;
-	
+
 	public TermNode(Tokenizer tokenizer) throws IOException, TokenizerException {
 
 		factor = new FactorNode(tokenizer);
@@ -23,40 +23,43 @@ public class TermNode implements INode{
 			term = new TermNode(tokenizer);
 		}
 	}
-	
+
 	@Override
 	public Object evaluate(Object[] args) throws Exception {
 		if(operator != null) {
 			if(operator.token().equals(Token.MULT_OP)) {
-				return (double)factor.evaluate(null) * (double)term.evaluate(null);
+				return (double)factor.evaluate(args) * (double)term.evaluate(args);
 			} else if(operator.token().equals(Token.DIV_OP)) {
-				return (double)factor.evaluate(null) / (double)term.evaluate(null);
+				return (double)factor.evaluate(args) / 
+						((double)term.factor.evaluate(args) * 
+						(double)term.factor.evaluate(args) / 
+						(double)term.evaluate(args));
 			} else {
 				return null;
 			}
 		} else {
-			return (double) factor.evaluate(null);
+			return (double) factor.evaluate(args);
 		}
 	}
 
 	@Override
 	public void buildString(StringBuilder builder, int tabs) {
-		
+
 		for (int i = 0; i < tabs; i++) {
 			builder.append("\t");
 		}
-		
+
 		builder.append("TermNode\n");
-		
+
 		tabs++;
-		
+
 		factor.buildString(builder, tabs);
-		
+
 		if(operator != null) {
 			for (int i = 0; i < tabs; i++) {
 				builder.append("\t");
 			}
-			
+
 			builder.append(operator + "\n");
 			term.buildString(builder, tabs);
 		}
