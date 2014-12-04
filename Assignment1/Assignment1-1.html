@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<p id="prototype-based"></p>
+
+	<script>
+	
+		var myObject = {
+
+			superClassList : null,
+
+			create : function(superClassList) {
+				var newObject = Object.create(this);
+				newObject.superClassList = superClassList;
+				return newObject;
+			},
+
+			call : function(funcName, parameters, path) {
+
+				if (path == null) {
+					path = [ this ];
+				} else {
+					path.push(this);
+				}
+
+				if (funcName in this) {
+					return this[funcName].apply(null, parameters);
+				} else if (this.superClassList != null) {
+					for (var i = 0; i < this.superClassList.length; i++) {
+
+						if ("call" in this.superClassList[i]
+								&& path.indexOf(this.superClassList[i]) < 0) {
+							
+							var foundFunction = this.superClassList[i].call(
+									funcName, parameters, path);
+
+							if (foundFunction != null) {
+								return foundFunction;
+							}
+						}
+					}
+				}
+				return null;
+			}
+		};
+
+		var obj0 = myObject.create(null);
+
+		obj0.func = function(arg) {
+			return "func0: " + arg;
+		};
+
+		var obj1 = myObject.create([ obj0 ]);
+		var obj2 = myObject.create([]);
+
+		obj2.func2 = function(arg) {
+			return "func2: " + arg;
+		};
+
+		var obj3 = myObject.create([ obj1, obj2 ]);
+
+		var result = obj3.call("func", [ "hello" ]);
+		console.log(result);
+		
+	</script>
+
+</body>
+</html>
